@@ -7,507 +7,255 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
-<style>
-body {
-  scroll-behavior: smooth;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  background-color: #fff;
-}
+  <style>
+    body {
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background-color: #fff;
+    }
+    .text-pink { color: #d63384 !important; }
+    .bg-pink { background-color: #d63384 !important; }
+    .section-title { font-weight: 700; color: #d63384; }
 
-.text-pink   { color: #d63384 !important; }
-.bg-pink     { background-color: #d63384 !important; }
+    /* Navbar */
+    .navbar .navbar-brand { font-size: 1.5rem; }
+    .navbar .nav-link { color: #444 !important; transition: color 0.3s; font-weight: 600; }
+    .navbar .nav-link:hover { color: #d63384 !important; }
 
-.section-title {
-  font-weight: 700;
-  color: #d63384;
-}
+    /* Home Section */
+    .home { min-height: 100vh; display: flex; align-items: center; background: #fff; padding-top: 80px; }
+    .profile-img { width: 100%; max-width: 280px; height: 280px; border-radius: 50%; object-fit: cover; border: 5px solid #d63384; }
 
-/* -------- Navbar -------- */
-.navbar .navbar-brand {
-  font-size: 1.5rem;
-}
-.navbar .nav-link {
-  color: #444 !important;
-  transition: color 0.3s;
-  font-weight: 600;
-}
-.navbar .nav-link:hover {
-  color: #d63384 !important;
-}
+    /* Buttons */
+    .btn-pink { background-color: #d63384; color: #fff; border-radius: 30px; padding: 10px 25px; transition: 0.3s; }
+    .btn-pink:hover { background-color: #3d3d3d; color: #fff; }
 
-/* -------- Home Section -------- */
-.home {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background: #fff;
-  padding-top: 80px;
-}
+    /* About Section */
+    #about { background: linear-gradient(135deg, #ffe0ec, #ffe9d6); padding: 80px 0; min-height: 100vh; }
+    #about img { max-width: 380px; border-radius: 12px; border: 5px solid #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .cloud-shape { background: url("cloud.jpg") no-repeat center; background-size: contain; padding: 80px 60px; text-align: center; max-width: 700px; margin: 0 auto; position: relative; }
+    .cloud-shape::before { content: ""; position: absolute; inset: 0; background: rgba(255,255,255,0.6); z-index: 1; }
+    .cloud-shape p { position: relative; z-index: 2; font-weight: 700; line-height: 1.7; }
 
-/* Profile Image (Circle Crop) */
-.profile-img {
-  width: 100%;
-  max-width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 5px solid #d63384;
-}
+    /* Skills */
+    .skill-card { border-radius: 12px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .skill-card:hover { transform: translateY(-8px); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+    .skill-card i { color: #d63384; }
+    .progress { background-color: #f3f3f3; border-radius: 30px; }
+    .progress-bar { border-radius: 30px; }
 
-/* Buttons */
-.btn-pink {
-  background-color: #d63384;
-  color: #fff;
-  border-radius: 30px;
-  padding: 10px 25px;
-  transition: 0.3s;
-}
-.btn-pink:hover {
-  background-color: #3d3d3d;
-  color: #fff;
-}
+    /* Projects */
+    .project-card { border-radius: 15px; transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%; }
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .project-card img, .scroll-gallery img, .fixed-img { height: 280px; width: 100%; object-fit: contain; background: #fff; }
+    .scroll-gallery { display: flex; gap: 10px; overflow-x: auto; padding: 10px; height: 280px; }
+    .scroll-gallery::-webkit-scrollbar { height: 8px; }
+    .scroll-gallery::-webkit-scrollbar-thumb { background: #d63384; border-radius: 10px; }
 
-/* -------- About Me Section -------- */
-#about {
-  background: linear-gradient(135deg, #ffe0ec, #ffe9d6);
-  color: #333;              
-  padding: 80px 0;
-  min-height: 100vh;
-}
+    /* Contact */
+    #contact { background: linear-gradient(135deg, #ffe0ec, #ffe9d6); padding: 80px 0; display: flex; justify-content: center; align-items: center; }
+    #contact .contact-box { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 600px; width: 90%; text-align: center; }
+    #contact .contact-box p { color: #444; margin-bottom: 10px; }
+    #contact a i { font-size: 1.5rem; margin: 10px; color: #d63384; transition: 0.3s; }
+    #contact a i:hover { color: #333; }
 
-#about .section-title {
-  color: #d63384; 
-  font-size: 2.2rem;
-}
+    html { scroll-padding-top: 30px; }
+    section { scroll-margin-top: 30px; }
 
-#about img {
-  max-width: 380px;
-  width: 100%;
-  border-radius: 12px;
-  border: 5px solid #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.cloud-shape {
-  position: relative;
-  background: url("cloud.jpg") no-repeat center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 80px 60px;
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.cloud-shape::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.6);
-  z-index: 1;
-}
-
-.cloud-shape p {
-  position: relative;
-  z-index: 2;
-  color: #333;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin-bottom: 15px;
-  font-weight: 700;
-}
-
-#about p {
-  color: #444; 
-  font-size: 1.05rem;
-  line-height: 1.8;
-  margin-bottom: 15px;
-}
-
-/* -------- Skills -------- */
-.skill-card {
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.skill-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-}
-.skill-card i {
-  color: #d63384;
-}
-
-/* -------- Projects -------- */
-.project-card {
-  border-radius: 15px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.project-card img,
-.scroll-gallery img,
-.fixed-img {
-  height: 280px;           /* pare-pareho ang taas */
-  width: 100%;             /* sakto sa lapad ng card */
-  object-fit: contain;     /* buong image makikita */
-  object-position: center; /* gitna ang alignment */
-  background: #fff;        /* puting background kung may bakanteng space */
-}
-
-.project-card .card-body {
-  padding: 12px 15px;
-}
-
-.project-card .card-title {
-  font-size: 1.1rem;
-  margin-bottom: 6px;
-}
-
-.project-card .card-text {
-  font-size: 0.95rem;
-  margin-bottom: 0;
-}
-
-/* Scrollable Gallery (Project 2) */
-.scroll-gallery {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 10px;
-  height: 280px;   /* match Project 1 img height */
-}
-
-.scroll-gallery img {
-  height: 100%;
-  border-radius: 10px;
-  flex-shrink: 0;
-  object-fit: cover;
-}
-
-.scroll-gallery::-webkit-scrollbar {
-  height: 8px;
-}
-.scroll-gallery::-webkit-scrollbar-thumb {
-  background: #d63384;
-  border-radius: 10px;
-}
-.scroll-gallery::-webkit-scrollbar-track {
-  background: #f3f3f3;
-}
-
-/* Progress Bar Custom */
-.progress {
-  background-color: #f3f3f3;
-  border-radius: 30px;
-  overflow: hidden;
-}
-.progress-bar {
-  border-radius: 30px;
-}
-.fixed-img {
-  height: 280px;           /* same height as Project 1 & 2 */
-  width: 100%;             /* sakto sa lapad ng card */
-  object-fit: contain;     /* ipakita buong image */
-  object-position: center; /* gitna ang alignment */
-  background: #fff;        /* para malinis ang bakanteng space */
-}
-/* Contact Section */
-#contact {
-  background: linear-gradient(135deg, #ffe0ec, #ffe9d6);
-  padding: 80px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#contact .contact-box {
-  background: #fff;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  max-width: 600px;  /* Para hindi masyadong malapad */
-  width: 90%;        /* Responsive sa maliit na screen */
-  text-align: center;
-}
-
-#contact .section-title {
-  color: #d63384;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-#contact p, 
-#contact li {
-  font-size: 1.05rem;
-  color: #444;
-  margin-bottom: 10px;
-}
-
-#contact a i {
-  font-size: 1.5rem;
-  margin: 10px;
-  color: #d63384;
-  transition: 0.3s;
-}
-
-#contact a i:hover {
-  color: #333;
-}
-
-
-
-/* -------- Scroll Fix -------- */
-html {
-  scroll-padding-top: 30px;
-}
-section {
-  scroll-margin-top: 30px;
-}
-</style>
+    /* Welcome Text under Shaira's Portfolio */
+    #welcomeText {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #555;
+      margin-top: -5px;
+    }
+  </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="90" tabindex="0">
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm bg-white">
-    <div class="container">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm bg-white">
+  <div class="container">
+    <div>
       <a class="navbar-brand fw-bold text-pink" href="#home">Shaira<span class="text-dark">'s Portfolio</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-              data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
-              aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
+      <div id="welcomeText"></div>
     </div>
-  </nav>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><button id="logoutBtn" class="btn btn-pink ms-3">Logout</button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-  <!-- Home Section -->
-  <section id="home" class="home d-flex align-items-center">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- Profile Image (Left Side) -->
-        <div class="col-md-5 text-center mb-4 mb-md-0">
-          <div class="profile-box shadow-sm">
-            <img src="picture.jpg" alt="Shaira Mae Landicho" class="profile-img" />
-          </div>
-        </div>
-        <!-- Text (Right Side) -->
-        <div class="col-md-7 text-center text-md-start">
-          <h1 class="fw-bold mb-2">Hi, I'm <span class="text-pink">Shaira Mae Landicho</span></h1>
-          <h4 class="text-muted mb-3">Your Future Web Developer & Designer</h4>
-          <p class="lead">
-            An IT student continuously learning and exploring the exciting world of technology.
-          </p>
-          <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start mt-4">
-            <a href="#projects" class="btn btn-pink px-4">See Projects</a>
-          </div>
-          <!-- Social Media Icons -->
-          <div class="mt-4 d-flex gap-3 justify-content-center justify-content-md-start">
-                <a href="https://www.facebook.com/profile.php?id=61580934741494" target="_blank">
-          <i class="bi bi-facebook text-pink fs-2"></i>
-            <a href="https://mail.google.com/mail/?authuser=23-30304@g.batstate-u.edu.ph" target="_blank">
-  <i class="bi bi-envelope-fill text-pink fs-2"></i>
-</a>
-          </div>
+<!-- Home -->
+<section id="home" class="home d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Profile -->
+      <div class="col-md-5 text-center mb-4">
+        <img src="picture.jpg" alt="Shaira Mae Landicho" class="profile-img shadow-sm" />
+      </div>
+      <!-- Intro -->
+      <div class="col-md-7 text-center text-md-start">
+        <h1 class="fw-bold">Hi, I'm <span class="text-pink">Shaira Mae Landicho</span></h1>
+        <h4 class="text-muted">Your Future Web Developer & Designer</h4>
+        <p class="lead">An IT student continuously learning and exploring the exciting world of technology.</p>
+        <a href="#projects" class="btn btn-pink">See Projects</a>
+        <div class="mt-4">
+          <a href="https://www.facebook.com/profile.php?id=61580934741494" target="_blank"><i class="bi bi-facebook text-pink fs-2"></i></a>
+          <a href="mailto:landichoshairamae@gmail.com" target="_blank"><i class="bi bi-envelope-fill text-pink fs-2"></i></a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- About Me Section -->
-  <section id="about">
-    <div class="container">
-      <h2 class="text-center mb-5 section-title">About Me</h2>
-      <div class="row align-items-center">
-        <div class="col-md-6 text-center">
-          <img src="pics.jpg" class="img-fluid rounded shadow-sm" alt="Shaira Mae Landicho">
-        </div>
-        <div class="col-md-6 mt-4 mt-md-0">
-          <!-- Cloud Design Wrapper -->
-          <div class="cloud-shape p-4 position-relative">
-            <p class="lead">
-              Hi, I’m <span class="text-pink fw-bold">Shaira Mae Landicho</span>,  
-              a <b>20-year-old 3rd year BS Information Technology student</b> majoring in <b>Service Management</b>.  
-              I am passionate about web development and design, with a strong interest in building websites that are both functional and visually appealing.
-            </p>
-            <p>
-              My goal is to grow as a developer, mastering modern tools and frameworks to deliver professional and responsive websites.  
-              I value continuous learning, collaboration, and creativity in all my projects.
-            </p>
-            <p>
-              Aside from coding, I enjoy exploring creative designs, enhancing user experiences, and learning how technology can make life easier.  
-              I believe in hard work, determination, and turning ideas into impactful digital solutions.
-            </p>
-          </div>
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">About Me</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center">
+        <img src="pics.jpg" class="img-fluid rounded shadow-sm" alt="Shaira Mae Landicho">
+      </div>
+      <div class="col-md-6 mt-4">
+        <div class="cloud-shape">
+          <p class="lead">Hi, I’m <span class="text-pink fw-bold">Shaira Mae Landicho</span>, a <b>20-year-old 3rd year BS Information Technology student</b> majoring in <b>Service Management</b>.</p>
+          <p>My goal is to grow as a developer, mastering modern tools and frameworks to deliver professional and responsive websites.</p>
+          <p>I enjoy exploring creative designs, enhancing user experiences, and learning how technology can make life easier.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5 section-title">Skills</h2>
-      <div class="row g-4 justify-content-center">
-        
-        <!-- HTML5 -->
-        <div class="col-6 col-md-3">
-          <div class="card skill-card text-center p-4 border-0">
-            <i class="bi bi-filetype-html display-4 text-pink mb-2"></i>
-            <h5 class="fw-semibold">HTML5</h5>
-            <div class="progress mt-3" style="height: 8px;">
-              <div class="progress-bar bg-pink" role="progressbar" style="width: 85%;" 
-                   aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <small class="fw-bold">85%</small>
-          </div>
+<!-- Skills -->
+<section id="skills" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">Skills</h2>
+    <div class="row g-4 justify-content-center">
+      <!-- Skill Cards -->
+      <div class="col-6 col-md-3">
+        <div class="card skill-card text-center p-4 border-0">
+          <i class="bi bi-filetype-html display-4 text-pink mb-2"></i>
+          <h5>HTML5</h5>
+          <div class="progress mt-3"><div class="progress-bar bg-pink" style="width:85%"></div></div>
+          <small class="fw-bold">85%</small>
         </div>
-
-        <!-- CSS3 -->
-        <div class="col-6 col-md-3">
-          <div class="card skill-card text-center p-4 border-0">
-            <i class="bi bi-filetype-css display-4 text-pink mb-2"></i>
-            <h5 class="fw-semibold">CSS3</h5>
-            <div class="progress mt-3" style="height: 8px;">
-              <div class="progress-bar bg-pink" role="progressbar" style="width: 80%;" 
-                   aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <small class="fw-bold">80%</small>
-          </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card skill-card text-center p-4 border-0">
+          <i class="bi bi-filetype-css display-4 text-pink mb-2"></i>
+          <h5>CSS3</h5>
+          <div class="progress mt-3"><div class="progress-bar bg-pink" style="width:80%"></div></div>
+          <small class="fw-bold">80%</small>
         </div>
-
-        <!-- Bootstrap -->
-        <div class="col-6 col-md-3">
-          <div class="card skill-card text-center p-4 border-0">
-            <i class="bi bi-bootstrap-fill display-4 text-pink mb-2"></i>
-            <h5 class="fw-semibold">Bootstrap</h5>
-            <div class="progress mt-3" style="height: 8px;">
-              <div class="progress-bar bg-pink" role="progressbar" style="width: 70%;" 
-                   aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <small class="fw-bold">70%</small>
-          </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card skill-card text-center p-4 border-0">
+          <i class="bi bi-bootstrap-fill display-4 text-pink mb-2"></i>
+          <h5>Bootstrap</h5>
+          <div class="progress mt-3"><div class="progress-bar bg-pink" style="width:70%"></div></div>
+          <small class="fw-bold">70%</small>
         </div>
-
-        <!-- JavaScript -->
-        <div class="col-6 col-md-3">
-          <div class="card skill-card text-center p-4 border-0">
-            <i class="bi bi-filetype-js display-4 text-pink mb-2"></i>
-            <h5 class="fw-semibold">JavaScript</h5>
-            <div class="progress mt-3" style="height: 8px;">
-              <div class="progress-bar bg-pink" role="progressbar" style="width: 60%;" 
-                   aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <small class="fw-bold">60%</small>
-          </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card skill-card text-center p-4 border-0">
+          <i class="bi bi-filetype-js display-4 text-pink mb-2"></i>
+          <h5>JavaScript</h5>
+          <div class="progress mt-3"><div class="progress-bar bg-pink" style="width:60%"></div></div>
+          <small class="fw-bold">60%</small>
         </div>
-
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-5 section-title">Projects</h2>
-      <div class="row g-4 justify-content-center">
-
-        <!-- Project 1 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card project-card shadow-sm h-100">
-            <img src="introduction.png" class="card-img-top fixed-img" alt="Introduction Project" />
-            <div class="card-body">
-              <h5 class="card-title">Introduction</h5>
-              <p class="card-text">A project showcasing my introduction with design and layout elements.</p>
-            </div>
-          </div>
+<!-- Projects -->
+<section id="projects" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">Projects</h2>
+    <div class="row g-4">
+      <!-- Project 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card project-card shadow-sm">
+          <img src="introduction.png" class="fixed-img" alt="Introduction Project" />
+          <div class="card-body"><h5 class="card-title">Introduction</h5><p>A project showcasing my introduction with design and layout elements.</p></div>
         </div>
-
-        <!-- Project 2 (Scrollable Images) -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card project-card shadow-sm h-100">
-            <div class="scroll-gallery">
-              <img src="image.png" alt="Project 2 Image 1">
-              <img src="image1.png" alt="Project 2 Image 2">
-              <img src="image2.png" alt="Project 2 Image 3">
-              <img src="image4.png" alt="Project 2 Image 4">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Project 2</h5>
-              <p class="card-text">A Bootstrap-based design project where I showcased different layouts and creative elements through a scrollable image gallery.</p>
-            </div>
+      </div>
+      <!-- Project 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card project-card shadow-sm">
+          <div class="scroll-gallery">
+            <img src="image.png"><img src="image1.png"><img src="image2.png"><img src="image4.png">
           </div>
+          <div class="card-body"><h5>Project 2</h5><p>A Bootstrap-based design project with a scrollable image gallery.</p></div>
         </div>
-
-        <!-- Project 3 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="card project-card shadow-sm h-100">
-            <img src="portfolio.png" class="card-img-top fixed-img" alt="Portfolio" />
-            <div class="card-body">
-              <h5 class="card-title">Project 3</h5>
-              <p class="card-text">A personal introduction page that highlights my background, skills, and passion for web development. It features a clean layout and responsive design to give visitors a first impression of my portfolio..</p>
-            </div>
-          </div>
+      </div>
+      <!-- Project 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card project-card shadow-sm">
+          <img src="portfolio.png" class="fixed-img" alt="Portfolio" />
+          <div class="card-body"><h5>Project 3</h5><p>A personal page that highlights my background, skills, and passion for web development.</p></div>
         </div>
-
       </div>
     </div>
-  </section>
-   <!-- Contact Section -->
-    <section id="contact">
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
   <div class="contact-box">
     <h2 class="section-title">Contact Me</h2>
     <p>You can reach me through the details below:</p>
-
-      <div class="contact-info">
-        <p><i class="bi bi-telephone-fill text-pink"></i> <b>Phone:</b> 09127391898</p>
-        <p><i class="bi bi-envelope-fill text-pink"></i> <b>Email:</b> landichoshairamae@gmail.com</p>
-        <p><i class="bi bi-geo-alt-fill text-pink"></i> <b>Address:</b> Plaingowak, San Juan, Batangas</p>
-      </div>
-
-      <!-- Social Links -->
-      <div class="social-links mt-4 d-flex justify-content-center gap-4">
-        <a href="https://www.linkedin.com/in/shaira-mae-landicho-115b20381/" target="_blank">
-          <i class="bi bi-linkedin text-pink fs-2"></i>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61580934741494" target="_blank">
-          <i class="bi bi-facebook text-pink fs-2"></i>
-    <a href="https://mail.google.com/mail/?authuser=23-30304@g.batstate-u.edu.ph" target="_blank">
-  <i class="bi bi-envelope-fill text-pink fs-2"></i>
-</a>
-
-
-
-      </div>
+    <p><i class="bi bi-telephone-fill text-pink"></i> <b>Phone:</b> 09127391898</p>
+    <p><i class="bi bi-envelope-fill text-pink"></i> <b>Email:</b> landichoshairamae@gmail.com</p>
+    <p><i class="bi bi-geo-alt-fill text-pink"></i> <b>Address:</b> Plaingowak, San Juan, Batangas</p>
+    <div class="social-links mt-4 d-flex justify-content-center gap-4">
+      <a href="https://www.linkedin.com/in/shaira-mae-landicho-115b20381/" target="_blank"><i class="bi bi-linkedin text-pink fs-2"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61580934741494" target="_blank"><i class="bi bi-facebook text-pink fs-2"></i></a>
+      <a href="mailto:landichoshairamae@gmail.com" target="_blank"><i class="bi bi-envelope-fill text-pink fs-2"></i></a>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ✅ Kunin yung active user na na-save sa localStorage nung nag-login
+const userName = localStorage.getItem("activeUser");
+
+// ✅ Kung may active user, display welcome + enable logout
+if (userName) {
+  // welcome text under "Shaira's Portfolio"
+  document.getElementById("welcomeText").innerHTML = `👋 Welcome, <b>${userName}</b>!`;
+
+  // logout button function
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+    localStorage.removeItem("activeUser");
+    window.location.href = "login.html";
+  });
+} else {
+  // kung walang naka-login, balik sa login page
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
